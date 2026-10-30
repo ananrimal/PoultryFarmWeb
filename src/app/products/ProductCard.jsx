@@ -6,6 +6,7 @@ import { FaCheck } from "react-icons/fa";
 import Heading from '../components/Home/Heading';
 import BodyText from '../components/Home/BodyText';
 import Stats from '../components/Home/Stats';
+import { GiChicken } from 'react-icons/gi';
 
 const products = [
   {
@@ -92,8 +93,8 @@ const ProductCard = () => {
 
             <p className="font-bold text-emerald-900 ">Rs. {product.price}<span>/{product.quantity}</span></p>
 
-            <Button className="text-xs px-3 py-2">
-              Buy Now
+            <Button className="text-sm px-3 py-2">
+             <div className='flex gap-2 items-center'><GiChicken/> Buy Now </div> 
             </Button>
           </div>
         )

@@ -4,7 +4,7 @@ import BackgroundBanner from '../components/Home/BackgroundBanner'
 import Heading from '../components/Home/Heading';
 import BodyText from '../components/Home/BodyText';
 import Subheading from '../components/Home/Subheading';
-import Form from '../components/Form';
+import Form from '../components/Home/Form';
 import Button from '../components/Home/Button';
 const iconsize=45
 const contact=[

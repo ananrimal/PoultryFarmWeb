@@ -15,9 +15,9 @@ const NavBar = () => {
     <ul className='flex mr-10 text-lg text-green-900 font-semibold divide-x-2 divide-gray-400 *:px-5 *:cursor-pointer'>
         <li><Link href="/">Home</Link></li>
         <li><Link href="/about-us">About Us</Link></li>
-        <li><Link href="/">Pages</Link></li>
+       <li><Link href="/products">Products</Link></li>
+        <li><Link href="/faqs">FAQ&apos;s</Link></li>
         <li><Link href="/">Blog</Link></li>
-        <li><Link href="/products">Products</Link></li>
         <li><Link href="/contact">Contact Us</Link></li>
     </ul>
     </nav>

@@ -8,6 +8,7 @@
   --font-niconne: "Niconne", cursive;
 }
 
-body {
+html, body {
   font-family: Helvetica, sans-serif;
+  overflow-x: hidden;
 }

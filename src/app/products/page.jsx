@@ -13,7 +13,7 @@ const page = () => {
     <Subheading>Free of hormones & additives</Subheading>
     <Heading className='text-3xl p-3 w-200 text-center'>Our eggs are hand-picked twice daily to meet our loyal customers’ needs</Heading>
    <BodyText>
-We collect with care to deliver only fresh and natural eggs every day.</BodyText>
+   We collect with care to deliver only fresh and natural eggs every day.</BodyText>
    <ProductCard/>
       </div>
 

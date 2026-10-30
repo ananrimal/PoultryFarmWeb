@@ -5,12 +5,12 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Heading from './Heading';
 import Button from './Button';
 const links=[
-    {id:1, text:"HOME", link:"./"},
+    {id:1, text:"HOME", link:"./home"},
     {id:2, text:"ABOUT US", link:"./about-us"},
-    {id:3, text:"CONTACT US", link:"./"},
-    {id:4, text:"TESTIMONIALS", link:"./"},
-    {id:5, text:"FAQ", link:"./"},
-    {id:6, text:"SERVICES", link:"./"},
+    {id:3, text:"PRODUCTS", link:"./products"},
+    {id:4, text:"CONTACT US", link:"./contact"},
+    {id:5, text:"FAQ", link:"./faqs"},
+    {id:6, text:"TESTIMONIALS", link:"./"},
 ]
 const Footer = () => {
   return (
