@@ -1,4 +1,6 @@
+"use client"
 import React from 'react'
+import { useState } from 'react';
 import { FaPhoneAlt, FaMapMarkerAlt,FaMailBulk, FaClock } from "react-icons/fa";
 import BackgroundBanner from '../components/Home/BackgroundBanner'
 import Heading from '../components/Home/Heading';
@@ -6,6 +8,8 @@ import BodyText from '../components/Home/BodyText';
 import Subheading from '../components/Home/Subheading';
 import Form from '../components/Home/Form';
 import Button from '../components/Home/Button';
+import * as yup from 'yup';
+ 
 const iconsize=45
 const contact=[
     {id:1, icon:<FaPhoneAlt size={iconsize}/>, title:"Phone", info:["+977 9000000000","+977 9111111111"],},
@@ -14,8 +18,57 @@ const contact=[
     {id:4, icon:<FaClock size={iconsize}/>, title:"Opening Hours", info:["Mon-Fri: 7am - 7pm","Sat-Sun: Closed"],},
 ]
 
-const page = () => {
-  return (
+const Page = () => {
+const initialValues={ name: "", email: "", message:"",}
+const [formValues, setFormValues] = useState(initialValues)
+const [errors, setErrors] = useState({})
+const [sentMessage, setSentMessage]= useState(false)
+
+const validationSchema= yup.object({
+    name: yup.string().required("Name is required."),
+    email: yup.string().required("Email is required.").email("Invalid email format."),
+    message: yup.string().required("Please write your message.")
+})
+const handleChange=(e)=>{
+    const{name, value}=e.target
+    
+    setFormValues({
+        ...formValues,
+        [name]:value, 
+    })
+    setSentMessage(false)
+}
+const validateForm = async () => {
+    try {
+        await validationSchema.validate(formValues, { abortEarly: false })
+        setErrors({})
+        return true
+    } catch (error) {
+        const newErrors = {}
+        error.inner.forEach((err) => {
+            newErrors[err.path] = err.message
+        })
+        setErrors(newErrors)
+        return false
+    }
+}
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const isValid = await validateForm();
+
+    if (isValid) {
+        console.log("Form Submitted", formValues);
+        setSentMessage(true)
+        setFormValues(initialValues)
+
+    } else {
+        console.log("Form Validation failed");
+    }
+}
+
+
+return (
     <>
     <BackgroundBanner title={"Contact Us"}/>
     <div className='flex gap-15 px-10 py-20'>
@@ -42,12 +95,29 @@ const page = () => {
         <Subheading>Send us a message!</Subheading>
         <Heading className='text-3xl w-4/5'>Your feedback means a lot to us, 
             it helps CoopFarm grow and serve you even better</Heading>
-           <div className='flex flex-col gap-4 pr-2 mt-5'>
-            <Form placeholder={'Name'}></Form>
-            <Form placeholder={'Email'}></Form>
-             <Form multiline placeholder={'Message'} className={'h-50'}></Form>
-                <Button className={'text-md'}>Send A Message </Button> 
+           <form onSubmit={handleSubmit} className='flex flex-col gap-4 pr-2 mt-5'>
+           <div>
+            <Form name="name"  onChange={handleChange} value={formValues.name} placeholder={'Name'}></Form>
+             {errors.name && (
+            <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+        )}
             </div>
+            <div>
+            <Form name="email" onChange={handleChange} value={formValues.email} placeholder={'Email'}></Form>
+             {errors.email && (
+            <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+        )}
+             </div>
+             <div>
+             <Form name="message"  onChange={handleChange} value={formValues.message} multiline placeholder={'Message'} className={'h-50'}></Form>
+            {errors.message && (
+            <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+        )}
+            </div>
+        
+            <Button type="submit" className={sentMessage?'bg-green-900 text-white text-md':'text-md'}> {sentMessage?"Message Sent!":"Send A Message"} </Button> 
+            
+            </form>
 
 
     </div>
@@ -64,4 +134,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

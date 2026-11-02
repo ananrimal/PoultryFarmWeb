@@ -6,7 +6,7 @@ import RoundedImage from './RoundedImage'
 
 const Testimonials = () => {
   return (
-    <>
+    <section id="testimonials">
     <div className="h-180 w-full bg-[url('/images/agriculture-Land.jpg')] bg-cover bg-center relative">
      <div className="absolute inset-0 bg-green-950/55"></div>
         <div className="grid grid-cols-2 gap-10">
@@ -44,7 +44,7 @@ const Testimonials = () => {
      </div>
     </div>
  
-    </>
+    </section>
   )
 }
 

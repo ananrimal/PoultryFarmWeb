@@ -22,8 +22,12 @@ const Gallery = () => {
     <Heading className='text-5xl'>Get to know our farm</Heading>
     </div>
     <div className='grid grid-cols-4 gap-5 px-28 pb-12'>   
+    
     {images.map((pic)=>(
-      <div key={pic.id} className='relative h-64 w-full'>
+   
+      
+      <div key={pic.id} className='relative group h-64 w-full'>
+     <div className='absolute inset-0 bg-black/40 z-10 group-hover:opacity-100 transition-opacity duration-300'></div>
        <Image
         src={pic.src}
         alt="gallery_images"
@@ -31,6 +35,7 @@ const Gallery = () => {
         className='object-cover rounded-xl'
          />
          </div>
+
     ))}
     </div>
     </div>

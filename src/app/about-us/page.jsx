@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import Heading from '../components/Home/Heading'
 import Subheading from '../components/Home/Subheading'
@@ -39,7 +40,7 @@ const page = () => {
        We grow the flock only as fast as we can look after it.
       </Heading>
     </div>
-    <Button> See Our Products </Button>
+    <Link href='/products'><Button> See Our Products </Button> </Link>
     </div>
     <div className='relative'>
          
@@ -73,7 +74,7 @@ const page = () => {
 <p> <FaCheckCircle className='text-amber-400'/> Grain mixed on the farm, with no routine antibiotics. </p>
 <p> <FaCheckCircle className='text-amber-400'/>  Two health checks in every shed, every day, written in the logbook. </p>
     </BodyText>
-    <Button> See Our Products </Button>
+    <Link href='/products'><Button> See Our Products </Button> </Link>
     </div>
    </div>
    {/*journey*/}

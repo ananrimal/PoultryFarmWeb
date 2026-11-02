@@ -4,6 +4,7 @@ import Heading from './Heading'
 import BodyText from './BodyText'
 import Image from 'next/image'
 import Button from './Button'
+import Link from 'next/link'
 
 const CalloutSplit = () => {
   return (
@@ -18,7 +19,7 @@ const CalloutSplit = () => {
         <p>We work closely with local growers and partners to track quality at every stage. From regular health checks to safe handling and delivery, 
             we make sure each order arrives fresh and on time.</p>
     </BodyText>
-    <Button> Our Products </Button>
+    <Link href='/products'> <Button> Our Products </Button> </Link>
     </div>
     <div className='relative'>
         <div className='flex items-center bg-green-800 text-white w-2/5 h-30 rounded- z-2 absolute -top-7 -left-9 rounded-md px-7 text-xl'>Our poultry is fed an entirely vegetarian diet.</div> 

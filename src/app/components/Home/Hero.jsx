@@ -3,6 +3,7 @@ import Button from "./Button";
 import Heading from './Heading';
 import Subheading from './Subheading';
 import BodyText from './BodyText';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
             <Subheading className='text-white'>No anti-biotics, no growth stimulants!</Subheading>
             <Heading className='text-amber-300 font-bold text-7xl'>Fresh Eggs for you everyday!</Heading>
             <BodyText className="text-white">From farm to table, our eggs are simply incredible!</BodyText>
-             <Button> CONTACT US </Button>
+              <Link href={'/contact'}> <Button> CONTACT US  </Button> </Link>
             </div>
         </div>
     </>

@@ -12,3 +12,7 @@ html, body {
   font-family: Helvetica, sans-serif;
   overflow-x: hidden;
 }
+
+html{
+  scroll-behavior: smooth;
+}

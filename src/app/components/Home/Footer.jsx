@@ -1,16 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link';
 import BodyText from './BodyText'
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Heading from './Heading';
 import Button from './Button';
 const links=[
-    {id:1, text:"HOME", link:"./home"},
-    {id:2, text:"ABOUT US", link:"./about-us"},
-    {id:3, text:"PRODUCTS", link:"./products"},
-    {id:4, text:"CONTACT US", link:"./contact"},
-    {id:5, text:"FAQ", link:"./faqs"},
-    {id:6, text:"TESTIMONIALS", link:"./"},
+    {id:1, text:"HOME", link:"/"},
+    {id:2, text:"ABOUT US", link:"/about-us"},
+    {id:3, text:"PRODUCTS", link:"/products"},
+    {id:4, text:"CONTACT US", link:"/contact"},
+    {id:5, text:"FAQ", link:"/faqs"},
+    {id:6, text:"TESTIMONIALS", link:"#testimonials"},
 ]
 const Footer = () => {
   return (
@@ -33,7 +34,9 @@ const Footer = () => {
            <ul className='mt-10 text-md space-y-6 text-green-900 font-bold cursor-pointer'>
             {links.map((link)=>(
                 <li key={link.id} className='group'>
+                    <Link href={link.link}>
                     <span className='text-lime-500 transition-colors group-hover:text-green-900'>&rsaquo;</span> {link.text} 
+                    </Link>
                 </li>
             ))}
            </ul>

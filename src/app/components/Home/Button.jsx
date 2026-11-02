@@ -1,8 +1,9 @@
 import { twMerge } from "tailwind-merge";
 
-const Button = ({ children, className, onClick, active = false }) => {
+const Button = ({ children, className, onClick, active = false, type }) => {
   return (
     <button
+    type={type}
       onClick={onClick}
       aria-pressed={active}
       className={twMerge(

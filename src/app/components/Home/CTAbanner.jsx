@@ -3,6 +3,7 @@ import Heading from './Heading'
 import BodyText from './BodyText'
 import Button from './Button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const CTAbanner = () => {
   return (
@@ -13,7 +14,7 @@ const CTAbanner = () => {
     <Heading className='text-amber-300 text-3xl/20'>Fresh from our farms to your shelves</Heading>
     <BodyText className='text-white'>We work directly with local farmers to bring you seasonal produce at fair prices. Get in touch for a custom quote tailored to your business.</BodyText>
     </div>
-    <Button className={'hover:bg-white hover:text-green-900'}>Contact Us</Button>
+    <Link href='/contact'> <Button className={'hover:bg-white hover:text-green-900'}>Contact Us</Button> </Link>
     </div>
   )
 }
