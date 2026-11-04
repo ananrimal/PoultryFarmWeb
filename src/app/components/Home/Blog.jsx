@@ -13,7 +13,7 @@ export const articles=[
 
 const Blog = () => {
   return (
-    <div className='py-10 md:py-20 px-5 md:px-10 lg:px-20'>
+    <div data-aos="fade-up" className='py-10 md:py-20 px-5 md:px-10 lg:px-20'>
 
       <Subheading className='text-xl sm:text-2xl md:text-3xl/20 text-center'>
         Our Blog

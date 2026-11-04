@@ -16,7 +16,7 @@ const IconBox = () => {
 
       {banner.map((item) => {
         return (
-          <div key={item.id} className="flex flex-col items-center gap-5 w-full text-gray-400">
+          <div data-aos="fade-up" key={item.id} className="flex flex-col items-center gap-5 w-full text-gray-400">
             <div className="text-6xl">{item.icon}</div>
             <Heading className="text-xl lg:text-2xl text-center">{item.title}</Heading>
             <BodyText className="text-center">{item.desc}</BodyText>

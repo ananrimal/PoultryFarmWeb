@@ -15,6 +15,7 @@ const CTAbanner = () => {
         alt="design_element"
         width={160}
         height={160}
+        data-aos="fade-right"
       />
 
       <Image
@@ -23,6 +24,7 @@ const CTAbanner = () => {
         alt="design_element"
         width={160}
         height={160}
+        data-aos="fade-up-right"
       />
 
       <div className='relative z-10 flex-1'>

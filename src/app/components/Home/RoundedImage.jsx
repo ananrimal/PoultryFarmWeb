@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 
-const RoundedImage = ({ src, alt = "person", size = 80, className = "" }) => {
+const RoundedImage = ({ src, alt = "person", size = 80, className = "", "data-aos": dataAos }) => {
   return (
     <div
+      data-aos={dataAos}
       className={`relative shrink-0 ${className}`}
       style={{ width: size, height: size }}
     >

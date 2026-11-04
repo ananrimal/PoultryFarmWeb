@@ -61,7 +61,7 @@ const products = [
 const ProductCard = () => {
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 w-full max-w-6xl mx-auto px-2 md:px-5">
+      <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 w-full max-w-6xl mx-auto px-2 md:px-5">
 
         {products.map((product) => {
           return (
@@ -111,17 +111,18 @@ const ProductCard = () => {
 
       {/* Info Cards */}
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full max-w-6xl mx-auto px-2 md:px-5 mt-10'>
-
+        <div data-aos="fade-right">
         <InfoCard
           title="How to order?"
           text="Ordering from CoopFarm is simple and quick. Call us or send a message, and we’ll deliver fresh poultry right to your door."
         />
-
+        </div>
+        <div data-aos="fade-left">
         <InfoCard
           title="Free Delivery"
           text="We offer free delivery for every order placed nearby. Enjoy farm-fresh eggs and poultry without extra cost or delay."
         />
-
+          </div>
       </div>
 
       <Stats/>

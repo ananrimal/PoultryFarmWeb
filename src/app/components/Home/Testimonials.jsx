@@ -113,15 +113,15 @@ const prevSlide = () => {
 
             {/* Rounded images appear from 768px */}
                   <div className='hidden md:flex flex-col justify-evenly items-center relative top-25 mr-5 lg:mr-10'> 
-                <div><RoundedImage size={100} src="/people/person2.jpg"/></div>
+                <div><RoundedImage  data-aos="zoom-in" size={100} src="/people/person2.jpg"/></div>
                 <div className='flex gap-8 lg:gap-30'>
-                    <RoundedImage size={130} src="/people/person3.jpg"/>
-                    <RoundedImage size={150} src="/people/person4.jpg"/>
-                    <RoundedImage size={120} src="/people/person5.jpg"/>
+                    <RoundedImage data-aos="zoom-in" size={130} src="/people/person3.jpg"/>
+                    <RoundedImage data-aos="zoom-in" size={150} src="/people/person4.jpg"/>
+                    <RoundedImage data-aos="zoom-in" size={120} src="/people/person5.jpg"/>
                 </div>
                 <div className='flex gap-10 lg:gap-40'>
-                    <RoundedImage size={120} src="/people/person6.jpg"/>
-                    <RoundedImage size={100} src="/people/person7.jpg"/>
+                    <RoundedImage data-aos="zoom-in" size={120} src="/people/person6.jpg"/>
+                    <RoundedImage data-aos="zoom-in" size={100} src="/people/person7.jpg"/>
                 </div>
             </div>
 

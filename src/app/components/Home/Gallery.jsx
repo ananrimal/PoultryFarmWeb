@@ -45,7 +45,8 @@ const Gallery = () => {
           setSlide(pic.id);
           setLightbox(true);
         }}  
-        className='object-cover rounded-xl cursor-pointer'
+         data-aos="zoom-in-up"
+        className='object-cover rounded-xl cursor-pointer '
        />
       </div>
     ))}

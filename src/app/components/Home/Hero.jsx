@@ -8,14 +8,31 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <>
-        <div className="relative flex items-center justify-center w-full h-180 bg-[url('/images/farm.webp')] bg-cover bg-center bg-black/80">
-             <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative flex items-center justify-center w-full h-180 overflow-hidden">
+
+            {/* Background image */}
+            <div className="absolute inset-0 bg-[url('/images/farm.webp')] bg-cover bg-center animate-slow-zoom"></div>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/50"></div>
+
+            {/* Content */}
             <div className="relative z-10 flex flex-col gap-18 text-center text-white justify-center items-center">
-            <Subheading className='text-white'>No anti-biotics, no growth stimulants!</Subheading>
-            <Heading className='text-amber-300 font-bold text-2xl md:text-6xl'>Fresh Eggs for you everyday!</Heading>
-            <BodyText className="text-white">From farm to table, our eggs are simply incredible!</BodyText>
-              <Link href={'/contact'}> <Button> CONTACT US  </Button> </Link>
+                <Subheading className='text-white'>No anti-biotics, no growth stimulants!</Subheading>
+
+                <Heading className='text-amber-300 font-bold text-2xl md:text-6xl'>
+                    Fresh Eggs for you everyday!
+                </Heading>
+
+                <BodyText className="text-white">
+                    From farm to table, our eggs are simply incredible!
+                </BodyText>
+
+                <Link href={'/contact'}>
+                    <Button> CONTACT US </Button>
+                </Link>
             </div>
+
         </div>
     </>
   )

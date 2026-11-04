@@ -41,16 +41,25 @@ const Timeline = () => {
                         <Circle />
 
                         {key !== events.length - 1 && (
-                            <div className='bg-lime-300 w-1 h-16 md:w-auto md:h-1 md:flex-1'></div>
+                            <div
+                                data-aos="fade-right"
+
+                                className='bg-lime-300 w-1 h-16 md:w-auto md:h-1 md:flex-1 line-grow'
+                            ></div>
                         )}
 
                     </div>
 
-                    <EventCard
-                        year={event.year}
-                        title={event.title}
-                        text={event.text}
-                    />
+                    <div
+                        data-aos="fade-right"
+                        
+                    >
+                        <EventCard
+                            year={event.year}
+                            title={event.title}
+                            text={event.text}
+                        />
+                    </div>
 
                 </div>
             ))}
@@ -66,6 +75,7 @@ const Circle = () => {
         </div>
     )
 }
+
 const EventCard = ({ year, title, text }) => {
     return (
         <div className='flex flex-col gap-y-1 pr-4 mt-2 mb-6 md:mb-0'>

@@ -48,7 +48,7 @@ const page = () => {
               </p>
             </BodyText>
 
-            <div className="bg-white w-full px-5 md:px-8 py-6 md:py-7 rounded-3xl md:rounded-4xl border-l-8 border-green-700">
+            <div data-aos="fade-up" className="bg-white w-full px-5 md:px-8 py-6 md:py-7 rounded-3xl md:rounded-4xl border-l-8 border-green-700">
               <Heading className='text-lg'>
                 We grow the flock only as fast as we can look after it.
               </Heading>
@@ -140,7 +140,7 @@ const page = () => {
 
           {team.map((person, key) => (
             <div key={key} className='flex flex-col items-center gap-y-2'>
-              <RoundedImage size={200} src={person.image}/>
+              <RoundedImage  data-aos="zoom-in" size={200} src={person.image}/>
               <div className='text-green-800 font-bold text-lg md:text-xl text-center'>
                 {person.name}
               </div>

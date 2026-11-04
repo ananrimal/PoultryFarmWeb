@@ -79,7 +79,7 @@ return (
 
             {contact.map((items)=>{
                 return(
-                    <div key={items.id} className='bg-gray-200 flex flex-col gap-3 items-center justify-center rounded-lg p-6 sm:p-4 md:p-6 min-w-0'>
+                    <div data-aos="zoom-in" key={items.id} className='bg-gray-200 flex flex-col gap-3 items-center justify-center rounded-lg p-6 sm:p-4 md:p-6 min-w-0'>
                         <div className='text-gray-500'>{items.icon} </div>
                         <Heading className='text-lg sm:text-xl text-center'> {items.title} </Heading>
                         <div className="flex flex-col items-center min-w-0 max-w-full">
