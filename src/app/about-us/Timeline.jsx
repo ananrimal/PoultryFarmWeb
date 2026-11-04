@@ -1,5 +1,4 @@
-import React, { Children } from 'react'
-import { Fragment } from 'react'
+import React from 'react'
 
 const events = [
     {
@@ -28,44 +27,51 @@ const events = [
         text: "The flock reaches 12,000 hens, each shed still walked daily."
     },
 ]
+
 const Timeline = () => {
     return (
-        <div className='flex w-full p-30'>
+        <div className='flex flex-col md:flex-row w-full p-5 md:p-10 lg:p-20'>
+
             {events.map((event, key) => (
-                <div key={key}>
-                    <Circle>
-                        <Pillar />
-                    </Circle>
-                    <EventCard year={event.year} title={event.title} text={event.text} />
+                <div key={key} className='flex flex-row md:flex-col flex-1'>
+
+                    {/* Circle and line together */}
+                    <div className='flex flex-col md:flex-row items-center md:w-full'>
+
+                        <Circle />
+
+                        {key !== events.length - 1 && (
+                            <div className='bg-lime-300 w-1 h-16 md:w-auto md:h-1 md:flex-1'></div>
+                        )}
+
+                    </div>
+
+                    <EventCard
+                        year={event.year}
+                        title={event.title}
+                        text={event.text}
+                    />
+
                 </div>
             ))}
+
         </div>
     )
 }
 
-const Circle = ({ children }) => {
+const Circle = () => {
     return (
-        <div className='flex items-center w-full'>
-            <div className='rounded-full border-2 border-green-500 bg-white p-1'>
-                <div className='bg-amber-300 rounded-full w-5 h-5'></div>
-            </div>
-            {children}
+        <div className='rounded-full border-2 border-green-500 bg-white p-1 shrink-0 z-10'>
+            <div className='bg-amber-300 rounded-full w-5 h-5'></div>
         </div>
     )
 }
-
-const Pillar = () => {
-    return (
-        <div className='bg-lime-300 rounded-full h-1 flex-1'></div>
-    )
-}
-
 const EventCard = ({ year, title, text }) => {
     return (
-        <div className='flex flex-col gap-y-1 pr-6 mt-2'>
-            <div className='text-green-800 font-bold text-2xl'>{year}</div>
-            <div className='text-green-800 font-bold text-xl'>{title}</div>
-            <div className='text-gray-500 text-md leading-relaxed'>{text}</div>
+        <div className='flex flex-col gap-y-1 pr-4 mt-2 mb-6 md:mb-0'>
+            <div className='text-green-800 font-bold text-xl md:text-2xl'>{year}</div>
+            <div className='text-green-800 font-bold text-lg md:text-xl'>{title}</div>
+            <div className='text-gray-500 text-sm md:text-md leading-relaxed'>{text}</div>
         </div>
     )
 }

@@ -4,20 +4,20 @@ import Link from 'next/link'
 
 const NavBar = () => {
   return (
-    <nav className='bg-white flex items-center justify-between p-3'>
-    <Image
+    <nav className='bg-white flex items-center justify-between p-3 fixed top-0 bg-white z-50 w-full'>
+    <Link href={'/'}><Image
     src="/images/GaugharPoultryLogo.svg"
     alt='logo'
     width={200}
     height={200}
     className='ml-20'
-    />
-    <ul className='flex mr-10 text-lg text-green-900 font-semibold divide-x-2 divide-gray-400 *:px-5 *:cursor-pointer'>
+    /></Link>
+    <ul className='flex mr-10 text-lg text-green-900 font-semibold divide-x-2 divide-gray-400 *:px-5 *:cursor-pointer '>
         <li><Link href="/">Home</Link></li>
         <li><Link href="/about-us">About Us</Link></li>
        <li><Link href="/products">Products</Link></li>
         <li><Link href="/faqs">FAQ&apos;s</Link></li>
-        <li><Link href="/">Blog</Link></li>
+        <li><Link href="/blog">Blog</Link></li>
         <li><Link href="/contact">Contact Us</Link></li>
     </ul>
     </nav>

@@ -13,24 +13,24 @@ const numbers=[
 const Stats = () => {
   return (
     <>
-    <div className='flex flex-col items-center gap-8 p-18'>
+    <div className='flex flex-col items-center gap-5 md:gap-8 p-5 md:p-18'>
     <Subheading>High-quality eggs</Subheading>
-    <Heading className='text-5xl'>Our Results show how we keep improving</Heading>
-    <BodyText className="text-2xl">We’re proud to see our hard work reflected in every egg we deliver</BodyText>
+    <Heading className='text-xl md:text-5xl text-center'>Our Results show how we keep improving</Heading>
+    <BodyText className="text-base text-center md:text-4xl">We’re proud to see our hard work reflected in every egg we deliver</BodyText>
     </div>
-    <div className='flex gap-4 px-20 pb-20'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 pb-20 md:px-10 lg:px-20 justify-center'>
     
        {numbers.map((items)=>(
-        <div className='relative' key={items.id}>
+        <div className='relative w-full max-w-[300px]' key={items.id}>
         <Image
-        src="images/statEgg.svg"
+        src="/images/statEgg.svg"
         alt="stat card"
-        className='relative'
+        className='w-full h-auto'
         width={300}
         height={300}/>
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-bold text-green-900 text-center'>
        <span>{items.number}</span><span>{items.unit}</span>
-       <div className='text-xl p-2'>{items.title}</div>
+       <div className='text-lg p-2'>{items.title}</div>
        </div> 
         
         

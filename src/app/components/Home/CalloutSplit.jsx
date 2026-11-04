@@ -9,10 +9,10 @@ import Link from 'next/link'
 const CalloutSplit = () => {
   return (
    <>
-   <div className='flex py-20 ml-30 justify-between'>
-    <div className='flex flex-col gap-5 w-1/2'>
+   <div className='flex flex-col md:flex-row py-10 md:py-20 px-5 md:ml-15 lg:ml-30 gap-10 md:gap-5 justify-between'>
+    <div className='flex flex-col gap-5 w-full md:w-1/2'>
     <Subheading>Providing premium poultry since 1983</Subheading>
-    <Heading className='text-4xl w-4/5'>We monitor agricultural products for customers & partners</Heading>
+    <Heading className='text-3xl md:text-4xl w-full md:w-4/5'>We monitor agricultural products for customers & partners</Heading>
     <BodyText className="flex flex-col gap-3">
         <p>Our farms follow careful, hands-on practices 
         from hatch to harvest. Every flock is raised in clean, spacious housing with fresh feed and water, so you get poultry you can trust.</p>
@@ -21,14 +21,16 @@ const CalloutSplit = () => {
     </BodyText>
     <Link href='/products'> <Button> Our Products </Button> </Link>
     </div>
-    <div className='relative'>
-        <div className='flex items-center bg-green-800 text-white w-2/5 h-30 rounded- z-2 absolute -top-7 -left-9 rounded-md px-7 text-xl'>Our poultry is fed an entirely vegetarian diet.</div> 
+    {/* image and green card */}
+    <div className='relative w-full md:w-1/2 '>
+    {/* green card absolute */}
+        <div className='flex items-center bg-green-800 text-white w-3/5 md:w-3/5 h-auto min-h-20 rounded- z-2 absolute -top-4 left-2 md:-top-7 md:-left-9 rounded-md px-4 md:px-7 py-3 text-base md:text-xl'>Our poultry is fed an entirely vegetarian diet.</div> 
      <Image
         src="/images/chicken.jpg"
         alt="Farmer"
         width={600}
         height={400}
-        className='rounded-2xl mr-10'
+        className='rounded-2xl w-full h-auto md:mr-10'
       />
       </div>
    </div>

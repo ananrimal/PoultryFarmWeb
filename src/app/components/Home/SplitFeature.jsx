@@ -22,11 +22,11 @@ const Features = () => {
     width={200}
     height={200}
     priority
-    className="w-full md:w-2/5 max-w-xl h-auto"
+    className="w-full sm:w-2/5 max-w-xl h-auto"
   />
 
-  <div className="flex flex-col gap-5 w-full md:w-3/5 mr-15">
-    <div className="bg-white w-full px-8 py-8 rounded-4xl border-l-8 border-green-700">
+  <div className="flex flex-col gap-5 w-full md:w-3/5 mr-15 mx-auto px-4">
+    <div className="bg-white w-full px-8 py-8 rounded-4xl border-l-8 border-green-700 ">
       <Heading className='text-2xl'>  We invest in modern facilities and technologies for optimal bird care</Heading>
       <BodyText>
         Our barns are clean and bright, giving every bird comfort and better living conditions.

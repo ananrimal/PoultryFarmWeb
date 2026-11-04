@@ -1,10 +1,11 @@
 "use client"
 import React from 'react'
 import { useState } from "react";
-import { FaChevronDown,FaChevronUp, FaSmile,FaMoneyBill,FaWalking, FaTruck, } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaSmile, FaMoneyBill, FaWalking, FaTruck } from "react-icons/fa";
 import BodyText from '../components/Home/BodyText';
 
-const iconSize=25
+const iconSize = 25
+
 const faq = [
 { id: 1, category: 'General', question: 'What makes CoopFarm products different from other poultry products?', answer: 'CoopFarm products come straight from our own farm, so you get fresh eggs and poultry without middlemen. Our birds are raised with care, on quality feed and in clean, healthy conditions. That means better taste, better quality, and products you can trust.' },
 { id: 2, category: 'Delivery', question: 'When can I expect delivery after ordering?', answer: 'Orders placed before noon are usually delivered the same day or the next morning. Delivery times may vary slightly depending on your location.' },
@@ -18,61 +19,68 @@ const faq = [
 { id: 10, category: 'Delivery', question: 'Which locations do you deliver to?', answer: 'We deliver across Kathmandu Valley and nearby areas. If your location is not listed, contact us and we will check if we can reach you.' },
 ]
 
-const Dropdown = ({showCategory}) => {
+const Dropdown = ({ showCategory }) => {
     const [openID, setOpenID] = useState(null)
+
     const displayCategory = () => {
-    if (!showCategory) {
-        return faq;
+        if (!showCategory) {
+            return faq;
+        }
+
+        return faq.filter((ques) => ques.category === showCategory);
     }
 
-    return faq.filter((ques) => ques.category === showCategory);
-}
-  return (
-    <>
-    {displayCategory().map((ques) => {
     return (
-        <div key={ques.id} className='flex flex-col'>
-            <button
-                type="button"
-                className="w-full text-left"
-                onClick={() => {
-                    openID === ques.id ? setOpenID(null) : setOpenID(ques.id)
-                }}
-            >
-                <div className='flex items-center gap-3 font-bold justify-between w-1/2 mx-auto py-4'>
-                    <span className='flex items-center justify-center w-14 h-14 border p-2 border-gray-400 rounded-lg text-gray-400 shrink-0'>
-                        {
-                            ques.category === 'General' ? <FaSmile size={iconSize}/> :
-                            ques.category === 'Pricing' ? <FaMoneyBill size={iconSize}/> :
-                            ques.category === 'Visit' ? <FaWalking size={iconSize}/> :
-                            <FaTruck size={iconSize}/>
-                        }
-                    </span>
+        <div className='w-full px-5 sm:px-8 md:px-10 lg:px-20 pb-10'>
+            <div className='max-w-4xl mx-auto'>
+                {displayCategory().map((ques) => {
+                    return (
+                        <div key={ques.id} className='flex flex-col border-b border-gray-200'>
+                            <button
+                                type="button"
+                                className="w-full text-left"
+                                onClick={() => {
+                                    openID === ques.id ? setOpenID(null) : setOpenID(ques.id)
+                                }}
+                            >
+                                <div className='flex items-center gap-3 sm:gap-4 font-bold justify-between w-full py-4 sm:py-5'>
 
-                    <span className='text-green-900 flex-1'>
-                        {ques.question}
-                    </span>
+                                    <span className='flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 border p-2 border-gray-400 rounded-lg text-gray-400 shrink-0'>
+                                        {
+                                            ques.category === 'General' ? <FaSmile size={iconSize}/> :
+                                            ques.category === 'Pricing' ? <FaMoneyBill size={iconSize}/> :
+                                            ques.category === 'Visit' ? <FaWalking size={iconSize}/> :
+                                            <FaTruck size={iconSize}/>
+                                        }
+                                    </span>
 
-                    {openID === ques.id ? <FaChevronUp/> : <FaChevronDown/>}
-                </div>
-           
+                                    <span className='text-green-900 flex-1 text-sm sm:text-base md:text-lg'>
+                                        {ques.question}
+                                    </span>
 
-            <BodyText
-                className={`w-1/2 mx-auto px-17 pb-4 text-sm/6 transition-all duration-300 ease-in-out ${
-                    openID === ques.id
-                        ? "max-h-40 opacity-100"
-                        : "max-h-0 opacity-0"
-                }`}
-            >
-                {ques.answer}
-            </BodyText>
-             </button>
+                                    <span className='shrink-0 text-green-900'>
+                                        {openID === ques.id ? <FaChevronUp/> : <FaChevronDown/>}
+                                    </span>
+                                </div>
+
+                                <div
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                                        openID === ques.id
+                                            ? "max-h-60 opacity-100"
+                                            : "max-h-0 opacity-0"
+                                    }`}
+                                >
+                                    <BodyText className='w-full sm:pl-16 md:pl-18 pb-4 text-sm sm:text-base leading-6 text-left'>
+                                        {ques.answer}
+                                    </BodyText>
+                                </div>
+                            </button>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
-})}
-   
-  </>
-  ) 
 }
 
 export default Dropdown

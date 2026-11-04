@@ -9,24 +9,24 @@ const banner=[
     {id:4, icon: <FaShippingFast />, title: "Fast Shipping", desc:"Enjoy farm-fresh deliveries right to your door, fast and reliable."}
     
 ]
+
 const IconBox = () => {
   return (
-    <>
-    <div className="flex bg-gray-100 gap-8 px-25 py-20 ">
-        
-        {banner.map((item)=>{
-            return(
-                <div key={item.id} className="flex flex-col items-center gap-5 w-1/2 text-gray-400">
-                <div className="text-6xl">{item.icon} </div>
-                <Heading className="text-2xl">{item.title}</Heading>
-                <BodyText className="text-center">{item.desc}</BodyText>
-                </div>
-            )
-        })}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-gray-100 gap-8 px-5 md:px-10 lg:px-15 xl:px-25 py-20">
+
+      {banner.map((item) => {
+        return (
+          <div key={item.id} className="flex flex-col items-center gap-5 w-full text-gray-400">
+            <div className="text-6xl">{item.icon}</div>
+            <Heading className="text-xl lg:text-2xl text-center">{item.title}</Heading>
+            <BodyText className="text-center">{item.desc}</BodyText>
+          </div>
+        )
+      })}
+
     </div>
-   
-    </>
   )
 }
+
 
 export default IconBox

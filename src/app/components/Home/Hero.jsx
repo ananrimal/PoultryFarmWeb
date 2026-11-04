@@ -12,7 +12,7 @@ const Hero = () => {
              <div className="absolute inset-0 bg-black/50"></div>
             <div className="relative z-10 flex flex-col gap-18 text-center text-white justify-center items-center">
             <Subheading className='text-white'>No anti-biotics, no growth stimulants!</Subheading>
-            <Heading className='text-amber-300 font-bold text-7xl'>Fresh Eggs for you everyday!</Heading>
+            <Heading className='text-amber-300 font-bold text-2xl md:text-6xl'>Fresh Eggs for you everyday!</Heading>
             <BodyText className="text-white">From farm to table, our eggs are simply incredible!</BodyText>
               <Link href={'/contact'}> <Button> CONTACT US  </Button> </Link>
             </div>

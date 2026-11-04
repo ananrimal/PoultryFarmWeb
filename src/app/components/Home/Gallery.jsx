@@ -16,37 +16,43 @@ const images=[
   {id:7, src:"/gallery/group.jpg", alt:"gallery image"},
   {id:8, src:"/gallery/poultryfarm.jpg", alt:"gallery image"},
 ]
+
 const Gallery = () => {
   const [slide, setSlide] = useState(1)
   const [lightbox, setLightbox]=useState(false)
+
   return (
     <>
-    <div className='bg-gray-100 relative'>
-    <div className='flex flex-col items-center gap-8 p-18'>
-    <Subheading className='text-4xl'>Our Gallery</Subheading>
-    <Heading className='text-5xl'>Get to know our farm</Heading>
+    <div className='bg-gray-100 relative w-full overflow-hidden'>
+    
+    <div className='flex flex-col items-center gap-5 md:gap-8 px-5 py-10 md:p-18'>
+    <Subheading className='text-2xl md:text-4xl'>Our Gallery</Subheading>
+    <Heading className='text-2xl text-center md:text-4xl'>Get to know our farm</Heading>
     </div>
-    <div className='grid grid-cols-4 gap-5 px-28 pb-12'>   
+
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 px-5 sm:px-8 md:px-10 lg:px-15 pb-10'>   
     
     {images.map((pic)=>(
-   
+      <div key={pic.id} className='relative group h-56 sm:h-52 md:h-64 w-full'>
       
-      <div key={pic.id} className='relative group h-64 w-full'>
-     <div className='absolute inset-0 bg-black/40 pointer-events-none z-10 opacity-0 rounded-xl group-hover:opacity-100 transition-opacity duration-300'></div>
+      <div className='absolute inset-0 bg-black/40 pointer-events-none z-10 opacity-0 rounded-xl group-hover:opacity-100 transition-opacity duration-300'></div>
+
        <Image
         src={pic.src}
-        alt="gallery_images"
+        alt={pic.alt}
         fill
         onClick={() => {
-        setSlide(pic.id);
-        setLightbox(true);
-}}  
+          setSlide(pic.id);
+          setLightbox(true);
+        }}  
         className='object-cover rounded-xl cursor-pointer'
-         />
-         </div>
+       />
+      </div>
     ))}
     </div>
+
     <Carousel images={images} slide={slide} setSlide={setSlide} lightbox={lightbox} setLightbox={setLightbox}/>
+
     </div>
     </>
   )
@@ -56,44 +62,63 @@ const Gallery = () => {
 const Carousel = ({images, slide, setSlide, lightbox, setLightbox})=>{
 
 const nextSlide = () => {
-setSlide(slide===images.length? 1:  slide+1)
+  setSlide(slide===images.length? 1: slide+1)
 }
 
 const prevSlide = () => {
-setSlide(slide===1? images.length :  slide-1)
+  setSlide(slide===1? images.length : slide-1)
 }
+
   return(
     <>
     {lightbox &&(
-    <div className='fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/20 overflow-hidden transition-all duration-900'>
-      <IoMdClose size={30} className='absolute top-10 right-10 text-white cursor-pointer z-50' onClick={() => setLightbox(false)}/>
-      <BsArrowLeftCircleFill size={30} className='absolute left-5 top-1/2 text-white cursor-pointer text-gray-400' onClick={prevSlide}/>
+    <div className='fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black/90 overflow-hidden'>
+
+      <IoMdClose 
+        size={30} 
+        className='absolute top-5 right-5 md:top-10 md:right-10 text-white cursor-pointer z-50' 
+        onClick={() => setLightbox(false)}
+      />
+
+      <BsArrowLeftCircleFill 
+        size={30} 
+        className='absolute left-3 md:left-5 top-1/2 -translate-y-1/2 text-white cursor-pointer z-50' 
+        onClick={prevSlide}
+      />
+
       {images.map((item)=>{
         return (
-   
-         <Image
-        key={item.id}
-        src={item.src}
-        alt={item.alt}
-        fill
-        onClick={()=>setSlide(item.id)}
-        className={slide===item.id?"block w-100 h-100 object-contain p-20":"hidden"} />
+          <div key={item.id} className={slide===item.id?"absolute inset-0 flex items-center justify-center":"hidden"}>
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              onClick={()=>setSlide(item.id)}
+              className="object-contain p-12 md:p-20"
+            />
+          </div>
+        )
+      })}
 
-      )})}
-       <BsArrowRightCircleFill size={30} className='absolute right-5 top-1/2 text-white cursor-pointer' onClick={nextSlide}/>
-      <span className="absolute bottom-3 flex justify-center">
+      <BsArrowRightCircleFill 
+        size={30} 
+        className='absolute right-3 md:right-5 top-1/2 -translate-y-1/2 text-white cursor-pointer z-50' 
+        onClick={nextSlide}
+      />
+
+      <span className="absolute bottom-5 flex justify-center z-50">
         {images.map((idx) => {
           return (
             <button
               key={idx.id}
               onClick={()=> setSlide(idx.id)}
               disabled={slide === idx.id}
-              className='bg-gray-200 h-2 w-2 rounded-full mx-1 cursor-pointer shadow-xl shadow-xl/30 disabled:bg-white'
-              
+              className='bg-gray-200 h-2 w-2 rounded-full mx-1 cursor-pointer shadow-xl disabled:bg-white'
             ></button>
           );
         })}
       </span>
+
     </div>
     )}
   </>
