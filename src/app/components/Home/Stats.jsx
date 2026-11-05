@@ -3,6 +3,7 @@ import React from 'react'
 import Subheading from './Subheading'
 import BodyText from './BodyText'
 import Heading from './Heading'
+import AnimatedNumber from './AnimatedNumber'
 
 const numbers=[
     {id:1, number:46, unit:"k", title:"Areas"},
@@ -29,7 +30,7 @@ const Stats = () => {
         width={300}
         height={300}/>
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-bold text-green-900 text-center'>
-       <span>{items.number}</span><span>{items.unit}</span>
+       <span><AnimatedNumber number={items.number}/></span><span>{items.unit}</span>
        <div className='text-lg p-2'>{items.title}</div>
        </div> 
         
